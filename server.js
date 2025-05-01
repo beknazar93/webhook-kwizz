@@ -221,8 +221,10 @@ wss.on("connection", (ws, req) => {
   });
 });
 
-server.listen(8080, () => {
-  console.log("WebSocket сервер запущен на порту 8080");
+// ✅ Используем PORT от Render
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, () => {
+  console.log(`WebSocket сервер запущен на порту ${PORT}`);
 });
 
 app.use(express.static("public"));
